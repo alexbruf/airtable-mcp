@@ -1,7 +1,0 @@
-{
-  "mcpServers": {
-    "airtable": {
-      "url": "http://localhost:8010/mcp"
-    }
-  }
-} 

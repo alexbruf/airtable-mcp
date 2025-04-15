@@ -1,0 +1,35 @@
+[project]
+name = "airtable-mcp"
+version = "0.1.0"
+description = "A local MCP server for interacting with Airtable via Claude."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    { name = "Alex Brufsky", email = "alex@brufsky.org" } # Update with actual author info
+]
+dependencies = [
+    "airtable-python-wrapper>=0.15.3",
+    "anthropic>=0.19.1",
+    # argparse is part of standard library, no need to list
+    "mcp>=1.6.0", 
+    "pydantic>=2.4.2",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "typing-extensions>=4.7.1",
+    "websockets>=11.0.3",
+]
+
+# Define the command-line script entry point for pipx
+#[project.scripts]
+#airtable-mcp-server = "airtable_mcp.server"
+
+
+# Use hatchling as the build backend (uv preferred)
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Removed setuptools specific config, hatchling often infers src layout automatically
+# [tool.setuptools.packages.find]
+# where = ["src"]
