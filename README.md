@@ -61,7 +61,7 @@ pipx install git+https://github.com/alexbruf/airtable-mcp.git
 pipx install ./path/to/cloned/airtable-mcp
 ```
 
-This command installs the package and makes the `airtable-mcp-server` command available in your PATH.
+This command installs the package and makes the `airtable-mcp` command available in your PATH.
 
 ## Configuration
 
@@ -79,7 +79,7 @@ This server requires an Airtable Personal Access Token to authenticate API reque
 2.  **Set Environment Variables:**
     The server reads the token from the `AIRTABLE_PERSONAL_ACCESS_TOKEN` environment variable. You can optionally set a default `AIRTABLE_BASE_ID`.
 
-    **Crucially, these environment variables must be available in the environment where `pipx` runs the `airtable-mcp-server` command.**
+    **Crucially, these environment variables must be available in the environment where `pipx` runs the `airtable-mcp` command.**
 
     *   **Recommended:** Add export commands to your shell profile (`~/.bashrc`, `~/.zshrc`, `~/.profile`, etc.) and restart your shell or source the file:
         ```bash
@@ -101,7 +101,7 @@ Ensure the environment variables are set in your current shell.
 Simply run the command installed by `pipx`:
 
 ```bash
-airtable-mcp-server
+airtable-mcp
 ```
 
 The server will start and log messages indicating it's ready and which token/base ID (if any) it's using.
