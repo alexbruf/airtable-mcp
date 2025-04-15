@@ -1,6 +1,6 @@
 [project]
 name = "airtable-mcp"
-version = "0.1.1"
+version = "0.1.2"
 description = "A local MCP server for interacting with Airtable via Claude."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -22,7 +22,7 @@ dependencies = [
 ]
 
 # Define the command-line script entry point for pipx
-#[project.scripts]
+[project.scripts]
 airtable-mcp = "airtable_mcp.server"
 
 
