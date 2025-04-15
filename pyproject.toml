@@ -1,6 +1,6 @@
 [project]
 name = "airtable-mcp"
-version = "0.1.2"
+version = "0.1.3"
 description = "A local MCP server for interacting with Airtable via Claude."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -23,7 +23,7 @@ dependencies = [
 
 # Define the command-line script entry point for pipx
 [project.scripts]
-airtable-mcp = "airtable_mcp.server"
+airtable-mcp = "airtable_mcp.__main__:main"
 
 
 # Use hatchling as the build backend (uv preferred)
@@ -31,6 +31,3 @@ airtable-mcp = "airtable_mcp.server"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-# Removed setuptools specific config, hatchling often infers src layout automatically
-# [tool.setuptools.packages.find]
-# where = ["src"]
