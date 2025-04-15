@@ -84,3 +84,4 @@ tmp/
 
 # Environment variables
 .env.* 
+.envrc

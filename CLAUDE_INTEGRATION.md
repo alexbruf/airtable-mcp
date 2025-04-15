@@ -4,7 +4,6 @@ This guide provides detailed instructions for setting up the Airtable MCP with C
 
 ## Prerequisites
 
-- Node.js 14+ installed
 - Claude Desktop installed
 - Airtable API token
 - Airtable base ID
@@ -22,11 +21,9 @@ This guide provides detailed instructions for setting up the Airtable MCP with C
    {
      "mcpServers": {
        "airtable-mcp": {
-         "command": "npx",
+         "command": "pipx",
          "args": [
-           "@smithery/cli",
-           "run",
-           "@rashidazarang/airtable-mcp",
+           "airtable-mcp",
            "--token",
            "YOUR_AIRTABLE_TOKEN",
            "--base",
@@ -56,27 +53,8 @@ Test the connection by asking Claude:
 
 ## Troubleshooting
 
-### Connection Issues
-1. Verify Node.js installation:
-   ```bash
-   node -v  # Should show v14 or higher
-   ```
-
-2. Test Smithery CLI:
-   ```bash
-   npx @smithery/cli --version
-   ```
-
-3. Check logs:
-   - Open `~/Library/Logs/Claude/mcp-server-airtable-mcp.log`
-   - Look for any error messages
-
 ### Common Errors
 
-1. **"Command not found"**
-   ```bash
-   npm install -g npm@latest
-   ```
 
 2. **JSON Parsing Errors**
    - Remove any extra backslashes

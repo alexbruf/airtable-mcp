@@ -1,10 +1,11 @@
 [project]
 name = "airtable-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "A local MCP server for interacting with Airtable via Claude."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
+repository = "https://github.com/alexbruf/airtable-mcp"
 authors = [
     { name = "Alex Brufsky", email = "alex@brufsky.org" } # Update with actual author info
 ]
@@ -22,7 +23,7 @@ dependencies = [
 
 # Define the command-line script entry point for pipx
 #[project.scripts]
-#airtable-mcp-server = "airtable_mcp.server"
+airtable-mcp = "airtable_mcp.server"
 
 
 # Use hatchling as the build backend (uv preferred)

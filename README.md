@@ -19,13 +19,43 @@ This package is designed to be installed and run using `pipx` for isolated execu
 *   **git** (for pipx installation from source)
 *   **Airtable Account**: You need an Airtable account.
 
+## Run with pipx
+
+Run the server with pipx:
+```bash
+pipx run airtable-mcp
+```
+
+## Example MCP Config
+```json
+    {
+      "mcpServers": {
+        "airtable-pipx": { // You can name this key anything descriptive
+          "command": "pipx",
+          "args": ["run", "airtable-mcp"] // No arguments needed as config is via environment variables
+          // "options": {} // Usually not needed if command is in PATH and env vars are set globally
+          "env": {
+            "AIRTABLE_PERSONAL_ACCESS_TOKEN": "XXXX",
+            "AIRTABLE_BASE_ID": "XXXX"
+          }
+        }
+        // Add other servers here if needed
+      }
+    }
+```
+
 ## Installation with pipx
 
-Install the server directly from this repository (replace `<repository-url>` with the actual URL):
+Install the server with pipx:
+```bash
+pipx run airtable-mcp
+```
+
+Install the server directly from this repository:
 
 ```bash
 # Example using HTTPS URL
-pipx install git+https://github.com/your-username/airtable-mcp.git
+pipx install git+https://github.com/alexbruf/airtable-mcp.git
 
 # Or if you have cloned it locally:
 pipx install ./path/to/cloned/airtable-mcp
@@ -91,8 +121,8 @@ To allow Claude for Desktop to use the tools from this server:
     {
       "mcpServers": {
         "airtable-pipx": { // You can name this key anything descriptive
-          "command": "airtable-mcp-server",
-          "args": [] // No arguments needed as config is via environment variables
+          "command": "pipx",
+          "args": ["run", "airtable-mcp"] // No arguments needed as config is via environment variables
           // "options": {} // Usually not needed if command is in PATH and env vars are set globally
           "env": {
             "AIRTABLE_PERSONAL_ACCESS_TOKEN": "XXXX",
@@ -104,7 +134,6 @@ To allow Claude for Desktop to use the tools from this server:
     }
     ```
     *   **Important:** Ensure the environment variables (`AIRTABLE_PERSONAL_ACCESS_TOKEN`, etc.) are correctly set in the environment that Claude for Desktop uses when launching commands. Setting them globally via your shell profile is the most reliable way.
-    *   If the `airtable-mcp-server` command is not found by Claude, you might need to find its exact path (`which airtable-mcp-server` or `where airtable-mcp-server`) and use that full path in the `"command"` field.
 
 3.  **Restart Claude for Desktop:** Close and reopen the application.
 
@@ -136,10 +165,10 @@ The following tools are exposed by the server:
 
 ## Troubleshooting
 
-*   **`airtable-mcp-server` command not found:** Ensure `pipx` installation completed successfully. Check if the `pipx` bin directory is in your PATH (`echo $PATH` and `pipx ensurepath`).
+*   **`airtable-mcp` command not found:** Ensure `pipx` installation completed successfully. Check if the `pipx` bin directory is in your PATH (`echo $PATH` and `pipx ensurepath`).
 *   **Authentication errors:** Verify `AIRTABLE_PERSONAL_ACCESS_TOKEN` is correctly set *in the environment where the command runs*. Use `printenv | grep AIRTABLE` in your terminal to check.
-*   **Claude connection issues:** Ensure environment variables are globally accessible or set in a way Claude can inherit them. Try running `airtable-mcp-server` manually in a terminal first. Check the server logs for connection attempts or errors when Claude tries to connect.
-*   **Tool errors:** Check the server logs (`airtable-mcp-server` output) for detailed error messages from the Airtable API.
+*   **Claude connection issues:** Ensure environment variables are globally accessible or set in a way Claude can inherit them. Try running `airtable-mcp` manually in a terminal first. Check the server logs for connection attempts or errors when Claude tries to connect.
+*   **Tool errors:** Check the server logs (`airtable-mcp` output) for detailed error messages from the Airtable API.
 
 ## Uninstallation
 
